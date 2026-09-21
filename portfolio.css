@@ -1,0 +1,78 @@
+/* Editorial rhythm and progressive motion; no framework or build step. */
+html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+body { background: #f3f0e7; }
+.pf-header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px 5%; background: #f3f0e7f5; color: #173a2c; border-bottom: 1px solid #173a2c25; backdrop-filter: blur(12px); font-family: 'DM Sans', Arial, sans-serif; }
+.pf-header a { color: inherit; text-decoration: none; }
+.pf-brand { font-size: 22px; font-weight: 700; letter-spacing: -.06em; white-space: nowrap; }
+.pf-brand span { font-size: 11px; letter-spacing: .02em; font-weight: 400; }
+.pf-header nav { display: flex; gap: 5px; }
+.pf-header nav a { padding: 10px 13px; border-radius: 24px; font-size: 13px; transition: background .2s, color .2s; }
+.pf-header nav a:hover, .pf-header nav a[aria-current] { background: #173a2c; color: #f3f0e7; }
+.pf-progress { position: absolute; bottom: -1px; left: 0; height: 2px; width: 100%; background: #b4cb54; transform: scaleX(0); transform-origin: left; }
+.pf-skip { position: fixed; top: 8px; left: 8px; z-index: 100; padding: 12px 18px; background: #173a2c; color: white; transform: translateY(-150%); }
+.pf-skip:focus { transform: none; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #e8784b; outline-offset: 5px; }
+#beyond-brief [tabindex="-1"]:focus { outline: none; }
+#beyond-brief section { padding-top: clamp(36px, 5vw, 76px); padding-bottom: clamp(36px, 5vw, 76px); }
+#beyond-brief .bb-body { font-size: clamp(15px, 1.2vw, 18px); line-height: 1.65; }
+#beyond-brief .bb-top { margin-bottom: 32px; }
+#beyond-brief .bb-work .bb-workintro { margin: 28px 0 36px; }
+#beyond-brief .bb-work .bb-workintro .bb-body { max-width: 540px; }
+#beyond-brief .bb-case-notes { gap: 32px; margin-top: 32px; }
+#beyond-brief .bb-case-notes p { font-size: 15px; line-height: 1.65; }
+#beyond-brief .bb-work summary { padding: 18px 0; font-size: 14px; }
+#beyond-brief .bb-work details[open] summary { margin-bottom: 12px; }
+#beyond-brief .bb-work .bb-linkline { margin-top: 36px; padding-top: 18px; }
+#beyond-brief .pf-cover-bottom { display: flex; justify-content: space-between; gap: 24px; align-items: center; margin-top: clamp(28px, 4vw, 56px); }
+#beyond-brief .pf-cover-bottom p { font: 16px/1.5 'DM Sans', Arial, sans-serif; color: #f3f0e7c9; }
+.pf-actions { display: flex; align-items: center; gap: 24px; }
+#beyond-brief .pf-button { display: inline-flex; align-items: center; gap: 32px; padding: 16px 22px; border-radius: 32px; color: #173a2c; background: #e7edbe; font: 500 14px 'DM Sans', Arial, sans-serif; text-decoration: none; transition: translate .2s, background .2s; }
+#beyond-brief .pf-button:hover { translate: 0 -3px; background: #f3f0e7; }
+#beyond-brief .pf-story-link { font: 12px 'DM Sans', Arial, sans-serif; color: #f3f0e7; text-underline-offset: 5px; }
+#beyond-brief .pf-work-index { background: #f3f0e7; color: #173a2c; }
+.pf-index-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
+#beyond-brief .pf-index-heading h2 { font-size: clamp(48px, 7vw, 90px); font-weight: 500; letter-spacing: -.065em; line-height: 1; }
+.pf-index-heading h2 em { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; }
+#beyond-brief .pf-index-heading p { font-size: 14px; line-height: 1.6; }
+.pf-work-index nav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid #173a2c50; }
+.pf-work-index nav a { display: flex; align-items: start; justify-content: space-between; gap: 12px; color: inherit; text-decoration: none; padding: 24px 14px; border-bottom: 1px solid #173a2c50; transition: background .2s; }
+.pf-work-index nav a:hover { background: #e4e8d5; }
+.pf-project-number { font: 11px 'IBM Plex Mono', monospace; opacity: .65; }
+.pf-work-index strong, .pf-work-index small { display: block; }
+.pf-work-index strong { font-size: 17px; font-weight: 500; }
+.pf-work-index small { margin-top: 8px; font-size: 12px; line-height: 1.4; }
+#beyond-brief .pf-back-top { display: inline-block; margin-top: 24px; padding: 12px 0; }
+@media (min-width: 1500px) { #beyond-brief { max-width: 1600px; margin-inline: auto; } }
+@media (max-width: 800px) {
+ .pf-brand span { display: none; }
+ .pf-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
+ .pf-work-index nav { grid-template-columns: 1fr; }
+ .pf-work-index nav a { align-items: center; padding: 18px 0; }
+ .pf-work-index nav a > span:nth-child(2) { flex: 1; }
+ .pf-work-index small { margin-top: 4px; }
+}
+@media (max-width: 600px) {
+ html { scroll-padding-top: 72px; }
+ .pf-header { padding: 9px 4%; gap: 10px; }
+ .pf-header nav { gap: 0; }
+ .pf-header nav a { padding: 12px 9px; font-size: 12px; }
+ #beyond-brief .pf-cover-bottom { flex-direction: column; align-items: start; gap: 24px; }
+ #beyond-brief .pf-cover-bottom p { font-size: 14px; }
+ .pf-actions { flex-direction: row; align-items: center; flex-wrap: wrap; }
+ #beyond-brief .pf-button { padding: 14px 18px; gap: 18px; }
+ .pf-index-heading { align-items: start; flex-direction: column; }
+ #beyond-brief .bb-work .bb-workintro { flex-direction: column; gap: 18px; }
+ #beyond-brief .bb-work .bb-workintro .bb-hand { max-width: none; }
+ #beyond-brief .bb-case-notes { grid-template-columns: 1fr; gap: 20px; }
+ #beyond-brief .bb-case-notes > div { border-top: 1px solid #8885; padding-top: 16px; }
+ #beyond-brief .bb-close-bottom { align-items: start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto; }
+ *, *::before, *::after { animation: none !important; transition: none !important; }
+ #beyond-brief .pf-button:hover { translate: none; }
+}
+@media print {
+ .pf-header, .pf-skip, .pf-actions, .pf-back-top { display: none !important; }
+ #beyond-brief section { break-inside: avoid; }
+}
